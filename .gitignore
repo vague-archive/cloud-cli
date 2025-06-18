@@ -1,0 +1,8 @@
+.git
+.env
+void-cloud
+
+.coverage
+
+.DS_Store
+Thumbs.db

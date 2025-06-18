@@ -1,0 +1,25 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Checkout code"
+      uses: actions/checkout@v4
+
+    - name: "Install Go"
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.24.2'
+
+    - name: "Install Just"
+      run: |
+        curl -sSL https://just.systems/install.sh | bash -s -- --to /usr/local/bin
+
+    - name: "Run tests"
+      run: just test
